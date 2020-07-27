@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'Lusitana';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Lusitana'), url(https://fonts.gstatic.com/s/lusitana/v7/CSR84z9ShvucWzsMKxha.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Noto Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Noto Serif Italic'), local('NotoSerif-Italic'), url(https://fonts.gstatic.com/s/notoserif/v8/ga6Kaw1J5X9T9RW6j9bNfFIWbQ.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v17/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVtapYCP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/robotoslab/v12/BngbUXZYTXPIvIBgJJSb6s3BzlRRfKOFbvjojISWaA.ttf) format('truetype');
+}
+body {
+  --titulo-1: 'Roboto Slab', serif;
+  --body-1: 'Noto Serif', serif;
+  --titulo-2: 'Raleway', sans-serif;
+  --body-2: 'Lusitana', serif;
+  --margin-padrao:8px;
+}
+/*****************************************************************************************************
+
+INPUT stylesheet
+
+***********************************************************/
+.form{
+  position: relative;
+  width: 90%;
+  height: 60px;
+  overflow: hidden;
+}
+.form .inputStyleTitulo{
+  background: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  outline: none;
+  text-transform:capitalize;
+}
+.inputStyleTitulo:focus{
+  background: transparent;
+}
+
+.form .lineInput{
+  position: absolute;
+  bottom:0px;
+  left:0%;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+/**********************************************************************
+ animação da linha
+**********************************************/
+.form .lineInput::after{
+  content: " ";
+  position: absolute;
+  left:0px;
+  bottom:-1px;
+  height: 100%;
+  width: 100%;
+  border-bottom:2px solid #5fa8d3;
+  /*****
+  ** Aqui é onde a mágica acontece
+  **/
+  transform: translateX(-100%);
+  transition: transform  0.3s ease;
+}
+.form input:focus +.lineInput::after,
+.form input:valid + .lineInput::after{
+  /*****
+  ** Aqui é onde a mágica acontece
+  **/
+  transform: translateX(0%);
+}
+/******************************************************************************************
+Fim imput style
+**************************************************************************************/
+
+/************************************************************************************
+ TextArea styles
+*****************************************************************************************/
+.auto_heightIncrease{
+  width: 100%;
+}
+.wrapperAllP .styleTextArea{
+  background: transparent;
+  border:none;
+  text-transform: capitalize;
+  outline: none;
+  color:gray;
+}
+.styleTextArea:focus{
+  background: transparent;
+  border:none;
+}
+/************************************************************************************
+ Fim TextArea styles
+*****************************************************************************************/
+.wrapperDarkMode {
+  display: block;
+  transition: background-color ease 4s;
+}
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  padding: 8px;
+}
+h1,.styleTextArea{
+  margin: var(--margin-padrao);
+  padding: .6em;
+}
+.titulo-1 {
+  font-family: var(--titulo-1);
+  font-size: 2em;
+}
+.paragrafo-1 {
+  font-family: var(--body-1);
+  font-weight: 500;
+}
+.titulo-2 {
+  font-family: var(--titulo-2);
+  font-size: 3em;
+}
+.paragrafo-2 {
+  font-family: var(--body-2);
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  z-index: 99;
+  bottom: 0px;
+  margin: var(--margin-padrao);
+}
+.columnFlex {
+  display: flex;
+  border: 1px ead solid;
+}
+button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  padding: 5px;
+  background: #fff;
+}
+button:focus{
+  outline: none;
+  animation:smoothClick 4s ease;
+}
+@keyframes smoothClick{
+  10%{
+    background:#DCDCDC;
+    -moz-box-shadow: inset 0 0 5px #000000;
+    -webkit-box-shadow:inset 0 0 5px #000000;
+    box-shadow: inset 0 0 5px #000000;
+  }
+  50%{
+    background: #fff;
+    box-shadow: none;
+  }
+}
+#aumenta,
+#btnFloatFirst {
+  border-radius: 5px  0 0 5px;
+}
+#sepia,
+#btnFloatlast {
+  border-radius: 0 5px 5px 0;
+}
+
+.style-font > img {
+  width: 50%;
+}
+button > img {
+  width: 40%;
+}
+/*******
+help classes ***/
+.justify {
+  text-align: justify;
+}
+.align-left {
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+}
