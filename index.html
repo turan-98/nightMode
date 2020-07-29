@@ -1,63 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-br" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - reader mode</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'><link rel="stylesheet" href="./style.css">
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <title>Night Writer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="write down your ideas while your eyes take a rest">
+    <meta name="keywords" content="write, ideas, google keep, night mode">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="night.ico"/>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css'>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div id="myapp-bg" class="wrapperDark" v-bind:style='{"background-color" : (isActive? "#1c1c1c" : "#C9B8A7" ), color:(isActive? "#aaaaaa": "#333")}'>
-    <div class="menu">
-        <div class="columnFlex">
-            <div class="gapEntreDivs">
-                <button id="aumenta" @click="AumentaFont()">
+    <!-- partial:index.partial.html -->
+    <div id="myapp-bg" class="wrapperDark" v-bind:style='{"background-color" : (isActive? "#1c1c1c" : "#C9B8A7" ), color:(isActive? "#aaaaaa": "#333")}'>
+        <div class="menu">
+            <div class="columnFlex">
+                <div class="gapEntreDivs">
+                    <button id="aumenta" @click="AumentaFont()">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABmJLR0QA/wD/AP+gvaeTAAACrElEQVRoge2Yz4tNYRjHP3NnajAmhbKhhPIjWZFiaRY0uUTs2dkM1rbyF5CFxkJZKJKymPGrREmJDE0slJpyZyFFbk2RY3Hu5cy5532e98c598zi/dTbvd33eZ/z/Z73uc/5AZFIJBKJ1MeAQ+wIcBnYKaxrA5PAjUBdfeESkFiMNrC2Jo3WDABz2BlKgDP1yLRnD/ZmEuBhPTLtuYiboV8s8bJ7h5uhBDhVi1ILNuJuJgHu16DVivP4GVoAVvVbbMMipinMtUnFFzEMjDsrqpjVpH9w0y5MAm+F+Tv9Fqzt0DgwJMw/AB4J8weBFa6icpwEWvw/SS3ghG+y25jP/m/SHTwkxCTAcd+Dd8iayZpyZhj4IQh90YkbIW0Apribfj7+YcpbiFRyY8CoMD/d+WwDL4W4w8AyYb5UJENHlLVTme+PhbhR4IC1oopoAF8wb/c3YDATv0+ITYDrAVqcSs7EXkXgrVz8EPBdiP+K3C2ht5u5DrH7ac8+pwvW3FPWjCmGQsyo3W9WWbihYM2EsuaqYijUjLEUtygLZgyCdijr5ln8v6vEUFGX07rbtOH3WdJGYmIdafMwMa8c14aWj6EpYU66DQI4JsxNEGaqBZzN/7iG9JamrHrOjznc3jQh5Cokv0NN5DoPZT2wu8L8PYa0ciuD0JtVa5YDP6mu3Lrjk6Mup5LL0uyDme7Y5WCo6IJr7KbZkpMetcvGpezy3a+wm+VpoN96uLwfeKLkeu+Qy4v9ioAFYKVDvgtKvgTYVpL2RXRLTutuT0kbhi3aBRbki2wwH5HP5jnHfIOkz0xSzldlCC9iu3Jg3/K4a5F3U6D2Hhro5fYZ+OCRW3os73LUI6/KM+SzeMUz72bgj5L7eYhwE2+EA84AWwNyX0N+xfU6IHckEolEIkuOv+BaFKmu5/t3AAAAAElFTkSuQmCC"/>
                 </button>
-            </div>
-            <div class="gapEntreDivs">
-                <button id="diminui" @click="DecreaseFont()">
+                </div>
+                <div class="gapEntreDivs">
+                    <button id="diminui" @click="DecreaseFont()">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAAE50lEQVR4nO2cW6gWVRTHf5+dTkoWcSqiy0sgIUH0YKlBhVBRRhYVYRe6qKcnH4pegiKCIsqCHqqHLj6FWUoQQkYREVGhCGEXiJRuaGDWEbuh2bEzPWwP4cc5x/mvmb33zHzrB/tt9tr/tfbs2TN7rz3gOI7jOI7jOI7jOI7jOI7jOI7jOI7jOE7TWQMcAIoS5QDwVB6Zg8ESynVEf1mSXupgsB5bh6zPIbbrnEL5R1V/OQScll5yPGblFgDcBcwx1h0G7qhRiwNsxzY6JstX6SV3l4up1hmTZVFq4bHI/chaVZOd0ZrsDDRzgP3UM0L+BE5KKz8OOUfIcsIbVh3MPWLPqcDH1DM6JsuWtPK7xXnABPV2SAFcmNKJGOR6ZI0CvQh2V0Sw2XmGgD3UPzoKYB8wO50r3eAm4nTGZLktnSvdYDP6Xa9c/0E6V9rP2cBhygf3IGGtSumQCWBeKofaziNowd1ImHN+Fus9kcqhNtMDvkUL7LIjdV8Q6+0Bjk/gU6u5Ei2oY4TldYBLxLoFcH0Cn1rN62gBfb6v/k6x/qao3rScEcIErQR0YZ+Nx8X648BZEX1qNfehBXPnFDbmizYK4KFYDrWdz9EC+fA0dj4T7XxP/j2fxrEQLYgTwLnT2HpAtFUAV0TwqdW8hBbAj2awdSbah2WBpwodxYnA72gBPNZ27Puivc6lClVhBVrwDnLsXcR7RJsF4aXCAT5BC9yGEjZPRk+sq5IqdC3wk9hembIbWFpBl4zlNfW6krY3GGwvNvqx29BW2bKrv7GYr4Rqis+vwHslr31NtA0Dnio0DOxFu1ueE+2r+yTWVKGlxBklu4BrDHpM3GwQeJHYxouGNgZ2lLyDFqgdhjYuE9sogK1Wh9rMOegfb5Y1px7wg9hOQcNThWJM6iuB44TrC8LSvEoBvGGoN1CpQpZdwQ8rtHe+2FbBgKUKXYUeoJUV2/zC0GZjU4WGarZnOV4wD3iwQpu/GeqMYntMtopTgb/R79YcpbGpQnVO6ncCJ9RoLyY9BmByV3cFc5dOpwotJn+ALaVxqUJ1PbLqOiuYmk4upVh2BZtSxgn5xo2hjhGynLBp1EaGCDuQneJT8t/pVUqnUoXmE+esYOrSmFShqnfGvcQ5K5iaxkzuVYI5TNj8P12oc5iwcxeTIfSdwUOEyX1f/XLScQv6o2FNAl0j2JZw7k+gLSrvojt9QSJtbxm0tfqvQpZdwW0J9VlP+lpThbLzKLqzqxPqGyacwFI1rk2osTZmAT+iOZojv9aSlfIXLfzIvRrd0Tcz6LzUoLMgvMq3io3oTi6b0lJcesB3Bq2tShWy7AruJd++w2MlNfaXbKlC6pf63ei7gusIq6o5eJUQYJWqiRfJsGR45E5M24queT/2X9cmw3J4f3sWpUezGttj6/YcYhXWojvVhOWIEcJrt6q90X8Vmgv8gebQOHBGDrFTsAm9Q7KkCpWd1G9FX0HdTHjDagLrDHUanSq0Bf0OuzGL0qmZje0fwY1MFbKcFRyjeUlzr2Cb3G/IIXYmnkV3QjmelorLsXXI2znEzsSX6E4syKJ0ZqwHfP7l//92RafMpP6NaHMb4ScxTaMAXjbU+xr4p2Yt01LmOMIqwiGcMq+AvwBPVlIUl6cJ3ySLKJdPMAY8E1WR4ziO4ziO4ziO4zgN5j8b5v0o+oewtwAAAABJRU5ErkJggg=="/>
                 </button>
-            </div>
-            <div class="gapEntreDivs">
-                <button id="font" v-on:click="changeFont" class="style-font">
+                </div>
+                <div class="gapEntreDivs">
+                    <button id="font" v-on:click="changeFont" class="style-font">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAAEAElEQVR4nO2cSWgUQRSGv0RNTDDgblxvQchJRHDDBYVcYlREUBEFD0LwooKiFz2qiIK44HYQxBw8eBHcA+IC4goBQUVziCiIikZxOUSjh3JgMDPd1V3dXdU174MHc+h5/fdP9euq7qoCQRAEQRAEQRAEQRCEQIbZFhCFKovnbgJagRnANGAUMBwYalFTFHqBDmA78NOylgEMATYAj4E/nsSJRB1KgCVAN/aNSTq+A9UJ+hSbeuAs9g3x2ujx+FUmSsXxxNyKSSPwDPtGpBWfgMNAXVKGxaEOeEC42HvANmAeMAaoLZPvjEaujnQuxW2OE2zKQ2BuhHw6D9H2hLTnhvlAP+UNOQgMjpBvckCu4mhORn4+qAVeUN6M/TFyrg3IV4j32B18ZU475c04T7xu0KmAnIW4YCo8TwwCXlLaiLeo4XUcgu6QQmwxEZ43llDeiGUxczYG5CyO6SbC80YHpU14RPz6uapMzuL4grqbKoZ3lDZitUHOY2VyFsclg/yZkfYY/Stw0eD/8zWOuWOQP5fsY2Br22OQbzTB/fFCzDE4Ry4ZDOxFlZA3/36b1M4VhJv8HagxOIeAXn2+Zk1dRKy/Rw1gkcYxN1NX4TkT0Os/z7Ql0BfWEW7yV9Q3yFzgaulYrHHMbaAvbSFJ4arRCzWOkfpsSBMevt9wsUXrlI1eoCttIUniotE63bpbwO+0hfhCPWpQ0oteqUgqPgNHsfz1OktOkK3B/0emU7lsfWerBr5ht1X9ABpQL65Sx8Ua7SW2jO5HzcezyVkyas22qQOOoB5OWdZmJ6Zy2eQQ4SY9sabOEJdqdKvGMbn4Pugyzejd9rNsCTTFlRbdpnHMR9TkyFySJ6OvIMNuI8YAvwgvG2tsCfSFjYSb3AeMtCXQF24QbvR1a+o8YTSqtYYZXXGz+ZNGp2z8Rq3uEgzoJNzou9bUecIk9HobW20J9IVd6JWNKbYE+kAV8IpwozttCfSFFvTebay3JdAXrhJu8jdytvmJa0xFb4L5GVsCfeEcemVjti2BPjAN1ZMIM/mBLYE+UI2aYaTTmldZ0ugcDTH+sxk9k3uItijfO0YCJ1ELKP+gvngcQE3tCmMeaictHaM3JS08T4yg/Drv+wRvodaC/pSC5+RoFn8aHCHYoNPARNQtPxb1sbUNtaOBzsOvEMuzuiBX+YC+WXHjcmZX4yhD0BtgmMRH1EqsiqeH9EzuB1Zmdylus5v0jN6Z4XU4Tw36g40ocSDLi8gL9ei9ddOJPmBHtvLzRS16m0kFxVOi7XlX0bSgtvCJYnAXams1V6ahZYrJGpYq1NB6KbAA1T0bh1ob8hN4jRrpPUHtQtNtpFQQBEEQBEEQBEEQBEFwhr/HFu7NRpRRHAAAAABJRU5ErkJggg=="/>
                 </button>
-            </div>
-            <button  class="style-align" @click="changeFontStyle">
+                </div>
+                <button class="style-align" @click="changeFontStyle">
             <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMCAxaDI0djJoLTI0di0yem0wIDdoMjR2LTJoLTI0djJ6bTAgNWgyNHYtMmgtMjR2MnptMCA1aDI0di0yaC0yNHYyem0wIDVoMjR2LTJoLTI0djJ6Ii8+PC9zdmc+">
             </button>
-            <div class="gapEntreDivs">
-                <button @click="toggleClass()">Sepia</button>
+                <div class="gapEntreDivs">
+                    <button @click="toggleClass()">Sepia</button>
+                </div>
+                <div class="gapEntreDivs">
+                    <button id="sepia" class="bnts" @click="toggleClass()">Dark</button>
+                </div>
             </div>
-            <div class="gapEntreDivs">
-                <button id="sepia" class="bnts" @click="toggleClass()">Dark</button>
+        </div>
+        <div class="container">
+            <div id="w" class="wrapper">
+                <div class="form-group form">
+                    <input type="text" class="form-control titulo-1 inputStyleTitulo" placeholder="meu titulo" required>
+                    <span class="lineInput  --activeColorLine"></span>
+                </div>
+                <div class="wrapperAllP">
+                    <textarea placeholder="Write down here your ideias..." class="styleTextArea auto_heightIncrease paragrafo-1" rows="1" oninput="autoHeight(this)" name="name" autofocus></textarea>
+                </div>
+
             </div>
         </div>
     </div>
-    <div class="container">
-        <div id="w" class="wrapper">
-          <div class="form-group form">
-            <input type="text" class="form-control titulo-1 inputStyleTitulo" placeholder="meu titulo" required>
-            <span class="lineInput  --activeColorLine"></span>
-          </div>
-          <div class="wrapperAllP">
-            <textarea placeholder="seu texto aqui..." class="styleTextArea auto_heightIncrease paragrafo-1" rows="1" oninput="autoHeight(this)" name="name" autofocus></textarea>
-
-            <p class="paragrafo-1">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</p>
-            <p class="paragrafo-1">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
-            <p class="paragrafo-1">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</p>
-            <p class="paragrafo-1">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
-          </div>
-
-        </div>
-    </div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script>
+    <script src="./script.js"></script>
 
 </body>
+
 </html>
